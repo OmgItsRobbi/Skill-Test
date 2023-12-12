@@ -2,7 +2,7 @@
 import React from 'react';
 import Login from '../components/Login';
 
-const IndexPage: React.FC = () => {
+const Index: React.FC = () => {
   const handleLoginSuccess = () => {
     // Handle the logic when login is successful
     console.log('Login successful! Redirect or update state as needed.');
@@ -16,5 +16,5 @@ const IndexPage: React.FC = () => {
   );
 };
 
-export default IndexPage;
+export default Index;
 
