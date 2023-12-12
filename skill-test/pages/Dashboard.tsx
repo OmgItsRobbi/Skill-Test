@@ -1,4 +1,3 @@
-// pages/Dashboard.tsx
 import React from 'react';
 
 const Dashboard: React.FC = () => {

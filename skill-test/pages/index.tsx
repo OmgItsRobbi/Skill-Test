@@ -10,7 +10,6 @@ const IndexPage: React.FC = () => {
 
   return (
     <div>
-      <h1>Skill Test</h1>
       <Login onLoginSuccess={handleLoginSuccess} />
       {/* Add other components or content as needed */}
     </div>
