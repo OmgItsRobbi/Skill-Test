@@ -1,3 +1,9 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
+
+.login-container{
+    background-color: red;
+    padding: 20px;
+    border:2px solid black;
+}

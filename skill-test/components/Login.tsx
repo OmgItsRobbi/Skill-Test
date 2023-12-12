@@ -8,26 +8,36 @@ interface LoginProps {
 }
 
 const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
-    const router = useRouter();
+  // State for input fields
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
 
+  // useRouter for programmatic navigation
+    const router = useRouter();
+
+  // Event handler for form submission
     const handleLogin = async (e: React.FormEvent) => {
-        e.preventDefault();
-    if (!username.trim() || !password.trim()){
-        console.error('Username and password are required.')
+    e.preventDefault();
+
+    // Simple validation check
+    if (!username.trim() || !password.trim()) {
+        console.error('Username and password are required.');
         return;
     }
-    
+
     try {
+      // Simulate API request using Axios
         const response = await axios.post('https://run.mocky.io/v3/a640a277-6211-433c-9390-36066dbb2b33', {
-            username,
-            password,
+        username,
+        password,
         });
 
     if (response.data.success) {
+        // If login is successful, trigger the onLoginSuccess callback
         onLoginSuccess();
+
+        // Redirect to the dashboard page
         router.push('/dashboard');
     } else {
         console.error('Login failed');
@@ -35,70 +45,71 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
     } catch (error) {
         console.error('Error during login:', error);
     }
-    };
+};
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
-            <div className="max-w-md w-full space-y-8 p-4 bg-white rounded-md shadow-md">
-                <h2 className="text-3xl font-extrabold text-center">Login</h2>
-                <form className="mt-8 space-y-6" onSubmit={handleLogin}>
-                    <div>
-                        <label htmlFor="username" className="sr-only">
-                            Username:
-                        </label>
-                        <input
-                            id="username"
-                            name="username"
-                            type="text"
-                            autoComplete="username"
-                            required
-                            className="appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-400 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                            placeholder="Username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="password" className="sr-only">
-                            Password:
-                        </label>
-                        <input
-                        id="password"
-                        name="password"
-                        type={showPassword ? 'text' : 'password'}
-                        autoComplete="current-password"
-                        required
-                        className="appearance-none rounded-md relative block w-full px-3 py-2 border placeholder-gray-400 text-gray-900 rounded-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                        placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                    />
-                    </div>
-                <div className="flex items-center">
-                <input
-                    id="show-password"
-                    name="show-password"
-                    type="checkbox"
-                    className="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded"
-                    checked={showPassword}
-                    onChange={() => setShowPassword(!showPassword)}
-                />
-                <label htmlFor="show-password" className="ml-2 block text-sm text-gray-900">
-                Show Password
-                </label>
+    // Outer container with flex and centering styles
+    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      {/* Inner container with padding, background, and shadow styles */}
+        <div className="p-4 bg-white rounded-md shadow-md">
+        {/* Login title */}
+        <h2 className="text-3xl font-extrabold text-center mb-4">Login</h2>
+
+        {/* Form with space between elements */}
+        <form className="space-y-6" onSubmit={handleLogin}>
+          {/* Username input field */}
+            <div>
+            <label htmlFor="username" className="block text-sm font-medium text-gray-600">
+                Username:
+            </label>
+            <input
+                type="text"
+                id="username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                className="mt-1 p-2 border rounded-md w-full"
+            />
             </div>
-                <div>
-                    <button
-                        type="submit"
-                        className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        Login
-                    </button>
-                </div>
-            </form>
+
+          {/* Password input field */}
+            <div>
+            <label htmlFor="password" className="block text-sm font-medium text-gray-600">
+                Password:
+            </label>
+            <input
+                type={showPassword ? 'text' : 'password'}
+                id="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="mt-1 p-2 border rounded-md w-full"
+            />
+            </div>
+
+          {/* Checkbox for showing password */}
+            <div className="flex items-center">
+            <input
+                type="checkbox"
+                checked={showPassword}
+                onChange={() => setShowPassword(!showPassword)}
+                className="mr-2"
+            />
+            <label htmlFor="showPassword" className="text-sm">
+                Show Password
+            </label>
+        </div>
+
+          {/* Login button */}
+        <button
+            type="submit"
+            className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+        >
+            Login
+        </button>
+        </form>
         </div>
     </div>
-    );
+);
 };
 
 export default Login;
+
