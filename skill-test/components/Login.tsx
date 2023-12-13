@@ -11,9 +11,7 @@ interface LoginProps {
 
 // Define the Login component
 const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
-  // Initialize the router from Next.js
   const router = useRouter();
-  // Initialize state variables for username, password, and showPassword
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
