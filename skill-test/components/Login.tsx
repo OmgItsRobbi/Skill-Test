@@ -51,7 +51,7 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
   return (
     <Container component="main" maxWidth="xs" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f5f5f5' }}>
-        <Typography variant="h4" gutterBottom style={{ color: '#333333', fontFamily: 'Rethink Sans, sans-serif' }}>
+        <Typography variant="h4" gutterBottom style={{ color: '#333333', fontFamily: 'Rethink Sans, sans-serif', fontWeight: 'bold' }}>
           Login
         </Typography>
         <form onSubmit={handleLogin} style={{ width: '100%', marginTop: 20 }}>
@@ -85,12 +85,12 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
             </Grid>
             <Grid item xs={12}>
               <FormControlLabel
-                control={<Checkbox style={{ color: '#333333' }} value={showPassword} onChange={() => setShowPassword(!showPassword)} />}
+                control={<Checkbox style={{ color: '#20262E' }} value={showPassword} onChange={() => setShowPassword(!showPassword)} />}
                 label="Show password"
               />
             </Grid>
           </Grid>
-          <Button type="submit" fullWidth variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#333333', color: '#f5f5f5' }}>
+          <Button type="submit" fullWidth variant="contained" color="primary" style={{ marginTop: 20, backgroundColor: '#20262E', color: '#f5f5f5' }}>
             Login
           </Button>
         </form>

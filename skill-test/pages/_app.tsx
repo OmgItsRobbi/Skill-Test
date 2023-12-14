@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps, router }) {
     const isLoginComponent = router.pathname === '/login';
 
     return (
-    <div style={{ backgroundColor: isLoginComponent ? '#f9f9f9' : '#333333', height: '100vh', margin: 0, padding: 0, boxSizing: 'border-box' }}>
+    <div style={{ backgroundColor: '#20262E', minHeight: '100vh', margin: 0, padding: 0, boxSizing: 'border-box' }}>
         <Component {...pageProps} />
     </div>
     );
