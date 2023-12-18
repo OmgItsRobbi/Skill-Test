@@ -29,6 +29,9 @@ const Navbar: React.FC = () => {
                 Sign out
             </Typography>
             <IconButton edge="end" color="inherit" aria-label="table" onClick={goToTablePage}>
+            <Typography variant="h6" sx={{ marginRight: '8px' }}>
+                    Table
+                </Typography>
                 <TableChartIcon />
             </IconButton>
         </Toolbar>
