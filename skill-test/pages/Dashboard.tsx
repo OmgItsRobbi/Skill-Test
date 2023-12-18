@@ -5,18 +5,19 @@ import Navbar from '../components/Navbar'
 
 const Dashboard: React.FC = () => {
 const [dashboardData, setDashboardData] = useState({
-    tables: [],
     barChartData: [],
     pieChartData: [],
     anotherPieChartData: [],
     anotherBarChartData: [],
+    yetAnotherPieChartData: [],
+    yetAnotherBarChartData: []
     });
 
 useEffect(() => {
     // Fetch data from mocky.io
     const fetchData = async () => {
     try {
-        const response = await fetch('https://run.mocky.io/v3/35f8433d-b1fc-4698-83cc-afed942a5633');
+        const response = await fetch('https://run.mocky.io/v3/bf8c2792-644d-4ff8-b407-395d728102a0');
         const data = await response.json();
         console.log('Fetched data:', data);
         setDashboardData(data);
@@ -41,6 +42,7 @@ return (
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    margin: 'auto',
                     width: '100%',
                     maxWidth: 800,
                     backgroundColor: '#DDDDDD',
@@ -75,6 +77,7 @@ return (
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    margin: 'auto',
                     width: '100%',
                     maxWidth: 800,
                     backgroundColor: '#DDDDDD',
@@ -115,6 +118,7 @@ return (
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    margin: 'auto',
                     width: '100%',
                     maxWidth: 800,
                     backgroundColor: '#DDDDDD',
@@ -155,6 +159,7 @@ return (
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
+                    margin: 'auto',
                     width: '100%',
                     maxWidth: 800,
                     backgroundColor: '#DDDDDD',
@@ -176,6 +181,82 @@ return (
                 <YAxis />
                 <Tooltip />
                 <Bar dataKey="value" fill="#82ca9d" />
+                </BarChart>
+            </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+            <Paper
+                elevation={3}
+                style={{
+                    padding: 20,
+                    marginBottom: 20,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    margin: 'auto',
+                    width: '100%',
+                    maxWidth: 800,
+                    backgroundColor: '#DDDDDD',
+                    border: '3px solid black',
+                }}
+            >
+            <Typography variant="h6" gutterBottom style={{ color: '#333333', fontFamily: 'Arial, sans-serif', fontSize: 30, fontWeight: 'bold' }}>
+                Yet Another Pie Chart
+            </Typography>
+            <PieChart
+                width={400}
+                height={300}
+                style={{ backgroundColor: "#EEEEEE", border: '1px solid black' }}
+            >
+            <Pie
+                dataKey="value"
+                isAnimationActive={false}
+                data={dashboardData.yetAnotherPieChartData}
+                cx="50%"
+                cy="50%"
+                outerRadius={100}
+                label
+            >
+                <Cell key="cell-0" fill="#03506F" />
+                <Cell key="cell-1" fill="#FFD369" />
+                <Cell key="cell-2" fill="#FF0000" />
+            </Pie>
+            </PieChart>
+            </Paper>
+        </Grid>
+
+        <Grid item xs={12} md={6}>
+            <Paper
+                elevation={3}
+                style={{
+                    padding: 20,
+                    marginBottom: 20,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    margin: 'auto',
+                    width: '100%',
+                    maxWidth: 800,
+                    backgroundColor: '#DDDDDD',
+                    border: '3px solid black',
+                }}
+            >
+            <Typography variant="h6" gutterBottom style={{ color: '#333333', fontFamily: 'Arial, sans-serif', fontSize: 30, fontWeight: 'bold' }}>
+                Yet Another Bar Chart
+            </Typography>
+            <BarChart
+                width={400}
+                height={300}
+                data={dashboardData.yetAnotherBarChartData}
+                margin={{ top: 20, right: 30, left: 20, bottom: 5 }}
+                style={{ backgroundColor: "#EEEEEE", border: '1px solid black' }}
+            >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <Tooltip />
+                <Bar dataKey="value" fill="#3887BE" />
                 </BarChart>
             </Paper>
         </Grid>
