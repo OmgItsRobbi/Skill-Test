@@ -31,8 +31,7 @@ If you would like to contribute to this project, follow these guidelines:
 
 ## License
 
-This project is licensed under the [LICENSE_NAME] - see the [LICENSE.md](LICENSE.md) file for details.
-
+This project is not licensed
 ## Contact
 
 For further information or assistance, contact [Your Name] at [your.email@example.com].
