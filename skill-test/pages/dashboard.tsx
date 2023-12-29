@@ -32,6 +32,9 @@ useEffect(() => {
 return (
     <div>
         <Navbar />
+        <Typography variant="h6" gutterBottom style={{ color: '#DDDDDD', fontFamily: 'Arial, sans-serif', fontSize: 30, fontWeight: 'bold', textAlign: 'center', paddingTop: '20px' }}>
+            Dashboard Page
+        </Typography>
         <Grid container spacing={2} style={{ paddingTop: 20, paddingLeft: 10, paddingRight: 10, }}>
         <Grid item xs={12} md={6}>
             <Paper
