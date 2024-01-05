@@ -49,7 +49,11 @@ const Login: React.FC<LoginProps> = ({ onLoginSuccess }) => {
 
   // Render the component
   return (
-    <Container component="main" maxWidth="xs" style={{ height: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+    <Container
+        component="main"
+        maxWidth="xs"
+        className="h-screen flex items-center justify-center "
+      >
       <Paper elevation={3} style={{ padding: 20, display: 'flex', flexDirection: 'column', alignItems: 'center', backgroundColor: '#f5f5f5' }}>
         <Typography variant="h4" gutterBottom style={{ color: '#333333', fontFamily: 'Rethink Sans, sans-serif', fontWeight: 'bold' }}>
           Login
